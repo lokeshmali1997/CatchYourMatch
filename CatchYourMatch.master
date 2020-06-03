@@ -1,0 +1,122 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="CatchYourMatch.master.cs" Inherits="CatchYourMatch" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+    <style>
+        .row{
+            margin:0px;
+        }
+
+
+
+.navbar{
+    height:100px;
+    background:#8e44ad;
+}
+.navbar-nav{
+    margin-top:20px;
+    margin-left:0em;
+    
+}
+.navbar-header{
+    margin-top:20px;
+
+}
+.navbar-nav  li a {
+    margin-left:50px;
+    color:#ddd;
+    font-size:16px;
+}
+.navbar-nav  li a:hover{
+    background:none;
+    
+}
+.navbar-nav  li a:focus{
+    background:none;
+    color:#fff;
+    
+}
+.dropdown{
+    background:none; 
+    margin-top:2em;
+}
+.dropdown a{
+   
+    color:#ddd;
+    text-decoration:none;
+   
+}
+.dropdown a .caret{
+   
+    color:#fff;
+}
+.dropdown .dropdown-menu a {
+   padding:10px 20px;
+   
+}
+</style>
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <div class="row">
+        <nav class="navbar navbar-defualt  navbar-fixed-top">
+  <div class="col-md-3">
+            
+    <div class="navbar-header">
+      <img src="logoimg/logo3.png" width="80%" height="60" />
+    </div>
+</div>
+            <div class="col-md-7">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Match</a></li>
+      <li><a href="#">Search</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+  
+        
+         </ul>
+     
+ </div>
+            <div class="col-md-2" style="">
+           
+           <div  class="dropdown" ><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <img src="img/usericon1.png" style="border-radius:50%;height:30px;width:30px;" /><asp:Label ID="lblusername" runat="server" Text="loky kumar"></asp:Label><span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">My Profile</a></li>
+          <li><a href="#">Page 1-2</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </div>
+              
+            </div>
+
+</nav>
+      </div>
+
+
+
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+
+        <div class="row" style="background:#ddd;margin-top:50px">
+           <div class="col-md-3" ></div>
+            <div class="col-md-6" ><p style="text-align:center;margin-top:0px">All rights reserved &copy;CatchYourMatch.com</p></div>
+            <div class="col-md-3" ></div>
+        </div>
+    </form>
+</body>
+</html>
