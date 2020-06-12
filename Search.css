@@ -1,0 +1,72 @@
+﻿        body {
+        }
+        .row {
+            margin: 0px;
+        }
+
+        .form-control {
+            outline: none;
+        }
+        .form-group > .form-control:focus {
+            outline: none;
+        }
+        .navbar {
+            height: 100px;
+            background: #8e44ad;
+        }
+        .navbar-nav {
+            margin-top: 20px;
+            margin-left: 0em;
+        }
+        .navbar-header {
+            margin-top: 20px;
+        }
+        .navbar-nav li a {
+            margin-left: 50px;
+            color: #ddd;
+            font-size: 16px;
+        }
+        .navbar-nav li a:hover {
+                background: none;
+        }
+        .navbar-nav li a:focus {
+                background: none;
+                color: #fff;
+        }
+        .dropdown {
+            background: none;
+            margin-top: 2em;
+        }
+        .dropdown a {
+                color: #ddd;
+                text-decoration: none;
+        }
+        .dropdown a .caret {
+                    color: #fff;
+        }
+        .dropdown .dropdown-menu a {
+                padding: 10px 20px;
+        }
+        .txtbox {
+            width: 80%;
+            height: 30px;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            outline: none;
+            padding: 10px;
+            font-size: 14px;
+        }
+        .repeater{
+            height:220px;
+           margin-top:10px;
+             margin-left:40px;
+            box-shadow:1px 1px 6px #808080;
+            border:1px solid #ddd;
+        }
+        .repeater ul{
+            list-style-type:none;
+            padding:20px;
+        }
+        .repeater ul li{
+            padding:5px;
+        }

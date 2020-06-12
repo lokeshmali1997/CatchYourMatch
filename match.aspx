@@ -63,7 +63,7 @@
    
 }
 .repeater{
-    height:180px;
+    height:220px;
     margin-top:30px;
     box-shadow:1px 0px 5px #ddd;
 }
@@ -125,9 +125,16 @@
                      <ItemTemplate>
                   <div class="row repeater">
                        <div class="col-md-4">
+                        
                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Bind("profileimage") %>' style="width:150px; height:150px;padding:10px;" />
+                            <ul>
+                               <li>
+                                   <b><asp:Label ID="Label1" runat="server" Text='<%# Bind("username") %>' style="text-align:center;font-family:'Times New Roman', Times, serif;font-size:20px"></asp:Label></b>
+                               </li>
+                           </ul>
                        </div>
                        <div class="col-md-4">
+                           
                            <ul>
                             <li><asp:Label ID="rpage" runat="server" Text='<%# Bind("age") %>' ></asp:Label>Years,
                                 <asp:Label ID="rpheight" runat="server" Text= '<%# Bind("height") %>' ></asp:Label>

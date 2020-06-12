@@ -23,7 +23,34 @@ public partial class search : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        Response.Redirect("match.aspx");
+        FillJobsRepeater();
+    }
+
+   public void FillJobsRepeater()
+    {
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["mycon"].ConnectionString);
+        if (con.State == ConnectionState.Closed)
+        {
+            con.Open();
+        }
+        SqlCommand cmd = new SqlCommand();
+        cmd.Connection = con;
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "usp_FetchUserdetailsbysearch";
+        cmd.Parameters.AddWithValue("@UserId", Session["id"].ToString());
+        cmd.Parameters.AddWithValue("@age", txtagemin.Text);
+        cmd.Parameters.AddWithValue("@city", txtcity.Text);
+        cmd.Parameters.AddWithValue("@religion", txtreligion.Text);
+
+
+        SqlDataAdapter adpt = new SqlDataAdapter();
+        adpt.SelectCommand = cmd;
+
+        DataSet table = new DataSet();
+        adpt.Fill(table);
+
+        Repeater1.DataSource = table;
+        Repeater1.DataBind();
     }
 
     protected void lnkogout_Click(object sender, EventArgs e)
