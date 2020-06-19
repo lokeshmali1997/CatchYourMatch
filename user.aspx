@@ -246,16 +246,17 @@
                             <li class="active"><a href="home.aspx">Home</a></li>
                             <li><a href="match.aspx">Match</a></li>
                             <li><a href="search.aspx">Search</a></li>
+                            <li><a href="Inbox.aspx">Inbox</a></li>
                             <li><a href="about.aspx">About</a></li>
                             <li><a href="contact.aspx">Contact</a></li>
                         </ul>
 
                     </div>
-                    <div class="col-md-2" style="">
+                    <div class="col-md-2" style="margin-top:20px;">
 
                         <div class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <img src="img/usericon1.png" style="border-radius: 50%; height: 30px; width: 30px;"/><asp:Label ID="lblusername" runat="server" Text="loky kumar"></asp:Label><span class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:#ddd;">
+                                <img src="img/usericon1.png" style="border-radius: 50%; height: 30px; width: 30px;"/><asp:Label ID="lblusername" runat="server" Text=""></asp:Label><span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="user.aspx">My Profile</a></li>
                                 <li><asp:LinkButton ID="lnkogout" runat="server" OnClick="lnkogout_Click">Logout</asp:LinkButton></li>
