@@ -14,8 +14,6 @@ public partial class search : System.Web.UI.Page
 {
     DataFunction objdf = new DataFunction();
     DataSet ds = new DataSet();
-    DataSet ds2 = new DataSet();
-    DataSet ds3 = new DataSet();
    
     int[] a;
     protected void Page_Load(object sender, EventArgs e)
@@ -146,15 +144,15 @@ public partial class search : System.Web.UI.Page
                 
                 
             }
-            ds3 = objdf.FillDsS("select * from RequestMaster where Sender_Id = '" + Session["id"] + "' and Recevier_Id = '" + hId.Value + "' and  Confrim = '" + 1 + "' or Recevier_Id = '" + Session["id"] + "' and Sender_Id = '" + hId.Value + "'and  Confrim = '" + 1 + "'");
-            confrim = ds3.Tables[0].Rows.Count;
+            ds = objdf.FillDsS("select * from RequestMaster where Sender_Id = '" + Session["id"] + "' and Recevier_Id = '" + hId.Value + "' and  Confrim = '" + 1 + "' or Recevier_Id = '" + Session["id"] + "' and Sender_Id = '" + hId.Value + "'and  Confrim = '" + 1 + "'");
+            confrim = ds.Tables[0].Rows.Count;
             if (confrim == 1)
             {
                 ViewProfile.Visible = true;
                 request.Visible = false;
             }
-            ds2 = objdf.FillDsS("select * from RequestMaster where Sender_Id = '" + Session["id"] + "' and Recevier_Id = '" + hId.Value + "' and  _Delete = '"+ 1 +"' or Recevier_Id = '" + Session["id"] + "' and Sender_Id = '" + hId.Value + "'and  _Delete = '" + 1 + "'");
-            delete = ds2.Tables[0].Rows.Count;
+            ds = objdf.FillDsS("select * from RequestMaster where Sender_Id = '" + Session["id"] + "' and Recevier_Id = '" + hId.Value + "' and  _Delete = '"+ 1 +"' or Recevier_Id = '" + Session["id"] + "' and Sender_Id = '" + hId.Value + "'and  _Delete = '" + 1 + "'");
+            delete = ds.Tables[0].Rows.Count;
             if (delete == equal)
             {
                 ViewProfile.Visible = false;

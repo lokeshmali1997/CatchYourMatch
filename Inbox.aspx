@@ -166,7 +166,6 @@
             width:15px;
             border-radius:3px;
             position: absolute;
-            margin-left:95px;
             padding-left:4px;
             top: -9px;
             color:#ddd;
@@ -241,7 +240,7 @@
                                 <asp:LinkButton ID="lbtnSentRequest" class="nav-link" runat="server" Style="color: #972cc3; position: relative;"
                                     OnClick="lbtnSentRequest_Click">
                                     <img src="img/icons8-email-send-24.png" style="width: 20px; height: 20px; margin-top: -4px" />
-                                    <asp:Label ID="lblSentRequest" runat="server" Text="" class="num"></asp:Label>
+                                    <asp:Label ID="lblSentRequest" runat="server" Text="" class="num" style="margin-left:90px;"></asp:Label>
                                     Sent Request
                                 </asp:LinkButton>
                             </li>
@@ -250,6 +249,7 @@
                                 <asp:LinkButton ID="lbtnAcceptRequest" runat="server" class="nav-link" Style="color: #972cc3; border: none;"
                                     OnClick="lbtnAcceptRequest_Click">
                                     <img src="img/icons8-checkmark-64.png" style="width: 20px; height: 20px; margin-top: -4px" />
+                                    <asp:Label ID="lblAccept" runat="server" Text="" class="num" style="margin-left:49px;"></asp:Label>
                                     Accept</asp:LinkButton>
                             </li>
 
@@ -257,19 +257,22 @@
                                 <asp:LinkButton ID="lbtnInvitation" runat="server" class="nav-link" Style="color: #972cc3; border: none;"
                                     OnClick="lbtnInvitation_Click">
                                     <img src="img/icons8-team-30.png" style="width: 22px; height: 23px; margin-top: -4px" />
+                                     <asp:Label ID="lblInvitation" runat="server" Text="" class="num" style="margin-left:62px;"></asp:Label>
                                     Invitation</asp:LinkButton>
                             </li>
 
-                            <li class="nav-item" style="margin-left: 35px;">
+                            <li class="nav-item" style="margin-left: 30px;">
                                 <asp:LinkButton ID="lbtnFriends" runat="server" class="nav-link" Style="color: #972cc3; border: none;"
                                     OnClick="lbtnFriends_Click">
                                     <img src="img/icons8-checked-user-male-60.png" style="width: 22px; height: 23px; margin-top: -5px" />
+                                    <asp:Label ID="lblFriends" runat="server" Text="" class="num" style="margin-left:50px;"></asp:Label>
                                     Friends</asp:LinkButton>
                             </li>
-                             <li class="nav-item" style="margin-left: 10px;">
+                             <li class="nav-item" style="margin-left: 20px;">
                                 <asp:LinkButton ID="lbtnDelete" runat="server" class="nav-link" Style="color: #972cc3; border: none;"
                                      OnClick="lbtnDelete_Click">
                                     <img src="img/icons8-delete-bin-50.png" style="width: 22px; height: 23px; margin-top: -5px" />
+                                    <asp:Label ID="lbldelete" runat="server" Text="" class="num" style="margin-left:45px;"></asp:Label>
                                     Delete</asp:LinkButton>
                             </li>
                         </ul>
@@ -321,7 +324,7 @@
                                        <div class="scrollbar scrollbar-primary">
                                     <div style="direction: ltr;">
                                         <!--Repeater 1-->
-                                        <asp:Repeater ID="Repeater3" runat="server">
+                                        <asp:Repeater ID="Repeater3" runat="server" OnItemDataBound="Repeater3_ItemDataBound">
                                             <ItemTemplate>
                                                 <div class="repeater">
                                                     <div class="row">
@@ -359,7 +362,7 @@
                                  <div class="scrollbar scrollbar-primary">
                                     <div style="direction: ltr;">
                                         <!--Repeater 1-->
-                                        <asp:Repeater ID="Repeater2" runat="server" OnItemCommand="Repeater2_ItemCommand">
+                                        <asp:Repeater ID="Repeater2" runat="server" OnItemCommand="Repeater2_ItemCommand" OnItemDataBound="Repeater2_ItemDataBound">
                                             <ItemTemplate>
                                                 <div class="repeater2">
                                                     <div class="row">
@@ -399,7 +402,7 @@
                                  <div class="scrollbar scrollbar-primary">
                                     <div style="direction: ltr;">
                                         <!--Repeater 1-->
-                                        <asp:Repeater ID="Repeater4" runat="server">
+                                        <asp:Repeater ID="Repeater4" runat="server" OnItemDataBound="Repeater4_ItemDataBound">
                                             <ItemTemplate>
                                                 <div class="repeater2" style="width:360px;">
                                                     <div class="row">
@@ -432,7 +435,7 @@
                                        <div class="scrollbar scrollbar-primary">
                                     <div style="direction: ltr;">
                                         <!--Repeater 1-->
-                                        <asp:Repeater ID="Repeater5" runat="server">
+                                        <asp:Repeater ID="Repeater5" runat="server" OnItemDataBound="Repeater5_ItemDataBound">
                                             <ItemTemplate>
                                                 <div class="repeater">
                                                     <div class="row">
