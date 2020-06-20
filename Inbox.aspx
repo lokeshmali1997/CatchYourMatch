@@ -193,7 +193,7 @@
     </script>
 </head>
 
-<body style="background: #ddd">
+<body style="background: #e9ebee">
     <form id="form1" runat="server">
         
             <div class="container-fluid">
@@ -290,7 +290,7 @@
                                 <div class="scrollbar scrollbar-primary">
                                     <div style="direction: ltr;">
                                         <!--Repeater 1-->
-                                        <asp:Repeater ID="Repeater1" runat="server" OnItemDataBound="Repeater1_ItemDataBound">
+                                        <asp:Repeater ID="Repeater1" runat="server">
                                             <ItemTemplate>
                                                 <div class="repeater">
                                                     <div class="row">
@@ -324,7 +324,7 @@
                                        <div class="scrollbar scrollbar-primary">
                                     <div style="direction: ltr;">
                                         <!--Repeater 1-->
-                                        <asp:Repeater ID="Repeater3" runat="server" OnItemDataBound="Repeater3_ItemDataBound">
+                                        <asp:Repeater ID="Repeater3" runat="server">
                                             <ItemTemplate>
                                                 <div class="repeater">
                                                     <div class="row">
@@ -362,7 +362,7 @@
                                  <div class="scrollbar scrollbar-primary">
                                     <div style="direction: ltr;">
                                         <!--Repeater 1-->
-                                        <asp:Repeater ID="Repeater2" runat="server" OnItemCommand="Repeater2_ItemCommand" OnItemDataBound="Repeater2_ItemDataBound">
+                                        <asp:Repeater ID="Repeater2" runat="server" OnItemCommand="Repeater2_ItemCommand">
                                             <ItemTemplate>
                                                 <div class="repeater2">
                                                     <div class="row">
@@ -402,7 +402,7 @@
                                  <div class="scrollbar scrollbar-primary">
                                     <div style="direction: ltr;">
                                         <!--Repeater 1-->
-                                        <asp:Repeater ID="Repeater4" runat="server" OnItemDataBound="Repeater4_ItemDataBound">
+                                        <asp:Repeater ID="Repeater4" runat="server">
                                             <ItemTemplate>
                                                 <div class="repeater2" style="width:360px;">
                                                     <div class="row">
@@ -435,7 +435,7 @@
                                        <div class="scrollbar scrollbar-primary">
                                     <div style="direction: ltr;">
                                         <!--Repeater 1-->
-                                        <asp:Repeater ID="Repeater5" runat="server" OnItemDataBound="Repeater5_ItemDataBound">
+                                        <asp:Repeater ID="Repeater5" runat="server">
                                             <ItemTemplate>
                                                 <div class="repeater">
                                                     <div class="row">

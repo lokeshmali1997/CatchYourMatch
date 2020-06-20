@@ -44,22 +44,23 @@ public partial class Inbox : System.Web.UI.Page
         ds = objdf.FillDsParam("usp_FetchRequestDetails", param);
         Repeater1.DataSource = ds;
         Repeater1.DataBind();
+        Count_1();
         //if (ds.Tables[0].Rows.Count > 0)
         //{
         //    a = new int[ds.Tables[0].Rows.Count];
         //    for (int loopcounter = 0; loopcounter < ds.Tables[0].Rows.Count; loopcounter++)
         //    {
 
-        //        a[loopcounter] = Convert.ToInt32(ds.Tables[0].Rows[loopcounter]["Recevier_Id"]);
-        //    }
-        //    for (int loopcounter = 0; loopcounter < a.Length; loopcounter++)
-        //    {
+    //        a[loopcounter] = Convert.ToInt32(ds.Tables[0].Rows[loopcounter]["Recevier_Id"]);
+    //    }
+    //    for (int loopcounter = 0; loopcounter < a.Length; loopcounter++)
+    //    {
 
-        //        Response.Write("<script>alert(" + a[loopcounter] + ")</script>");
-        //    }
+    //        Response.Write("<script>alert(" + a[loopcounter] + ")</script>");
+    //    }
 
-        //}
-    }
+    //}
+}
     public void FetchingInvitationRequestDetails()
     {
 
@@ -70,7 +71,8 @@ public partial class Inbox : System.Web.UI.Page
         ds = objdf.FillDsParam("usp_FetchInvitationDetails", param);
         Repeater2.DataSource = ds;
         Repeater2.DataBind();
-       
+        Count_2();
+
     }
     public void FetchingAcceptedRequestDetails()
     {
@@ -82,6 +84,7 @@ public partial class Inbox : System.Web.UI.Page
         ds = objdf.FillDsParam("usp_FetchAcceptedDetails", param);
         Repeater3.DataSource = ds;
         Repeater3.DataBind();
+        Count_3();
     }
     public void FetchingFriendsDetails()
     {
@@ -93,6 +96,7 @@ public partial class Inbox : System.Web.UI.Page
         ds = objdf.FillDsParam("usp_FetchFriendsdDetails", param);
         Repeater4.DataSource = ds;
         Repeater4.DataBind();
+        Count_4();
 
     }
     public void FetchingDeletedRequestDetails()
@@ -105,6 +109,7 @@ public partial class Inbox : System.Web.UI.Page
         ds = objdf.FillDsParam("usp_FetchDeletedDetails", param);
         Repeater5.DataSource = ds;
         Repeater5.DataBind();
+        Count_5();
     }
 
     protected void lnkogout_Click(object sender, EventArgs e)
@@ -181,10 +186,9 @@ public partial class Inbox : System.Web.UI.Page
     }
 
 
-    protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+    public void Count_1()
     {
-        if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-        {
+        
             int count = 0;
 
             ds = objdf.FillDsS("select * from RequestMaster where Sender_Id = '" + Session["id"] + "' and Confrim ='"+ 0 + "' and _Delete ='" + 0 + "'");
@@ -228,7 +232,7 @@ public partial class Inbox : System.Web.UI.Page
                     
                 }
             }
-        }
+        
     }
 
     protected void lbtnSentRequest_Click(object sender, EventArgs e)
@@ -262,26 +266,24 @@ public partial class Inbox : System.Web.UI.Page
         
     }
 
-    protected void Repeater2_ItemDataBound(object sender, RepeaterItemEventArgs e)
+    public void Count_2()
     {
-        if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-        {
-            int count = 0;
+           int count2 = 0;
 
             ds = objdf.FillDsS("select * from RequestMaster where Recevier_Id = '" + Session["id"] + "' and Confrim ='" + 0 + "' and _Delete ='" + 0 + "'");
             ds2 = objdf.FillDsS("Select Count_2 from Count_Master where Person_Id = '" + Session["id"] + "'");
-            count = Convert.ToInt32(ds2.Tables[0].Rows[0]["Count_2"].ToString());
-            if (ds.Tables[0].Rows.Count > count)
+            count2 = Convert.ToInt32(ds2.Tables[0].Rows[0]["Count_2"].ToString());
+            if (ds.Tables[0].Rows.Count > count2)
             {
-                count = ds.Tables[0].Rows.Count - count;
-                lblInvitation.Text = count.ToString();
-                count = ds.Tables[0].Rows.Count;
+                count2 = ds.Tables[0].Rows.Count - count2;
+                lblInvitation.Text = count2.ToString();
+                count2 = ds.Tables[0].Rows.Count;
 
                 SqlParameter[] param = new SqlParameter[2];
                 param[0] = new SqlParameter("@userid", SqlDbType.Int);
                 param[0].Value = Session["id"];
                 param[1] = new SqlParameter("@Count_2", SqlDbType.Int);
-                param[1].Value = count;
+                param[1].Value = count2;
                 int result = objdf.ExecuteQuery("usp_UpdateCount2", param);
                 if (result > 0)
                 {
@@ -292,14 +294,14 @@ public partial class Inbox : System.Web.UI.Page
             else
             {
 
-                if (ds.Tables[0].Rows.Count < count)
+                if (ds.Tables[0].Rows.Count < count2)
                 {
-                    count = ds.Tables[0].Rows.Count;
+                    count2 = ds.Tables[0].Rows.Count;
                     SqlParameter[] param = new SqlParameter[2];
                     param[0] = new SqlParameter("@userid", SqlDbType.Int);
                     param[0].Value = Session["id"];
                     param[1] = new SqlParameter("@Count_2", SqlDbType.Int);
-                    param[1].Value = count;
+                    param[1].Value = count2;
                     int result = objdf.ExecuteQuery("usp_UpdateCount2", param);
                     if (result > 0)
                     {
@@ -308,29 +310,28 @@ public partial class Inbox : System.Web.UI.Page
 
                 }
             }
-        }
+        
     }
 
-    protected void Repeater3_ItemDataBound(object sender, RepeaterItemEventArgs e)
+    public void Count_3()
     {
-        if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-        {
-            int count = 0;
+        
+            int count3 = 0;
 
             ds = objdf.FillDsS("select * from RequestMaster where Sender_Id = '" + Session["id"] + "' and Confrim ='" + 1 + "' and _Delete ='" + 0 + "'");
             ds2 = objdf.FillDsS("Select Count_3 from Count_Master where Person_Id = '" + Session["id"] + "'");
-            count = Convert.ToInt32(ds2.Tables[0].Rows[0]["Count_3"].ToString());
-            if (ds.Tables[0].Rows.Count > count)
+            count3 = Convert.ToInt32(ds2.Tables[0].Rows[0]["Count_3"].ToString());
+            if (ds.Tables[0].Rows.Count > count3)
             {
-                count = ds.Tables[0].Rows.Count - count;
-                lblAccept.Text = count.ToString();
-                count = ds.Tables[0].Rows.Count;
+                count3 = ds.Tables[0].Rows.Count - count3;
+                lblAccept.Text = count3.ToString();
+                count3 = ds.Tables[0].Rows.Count;
 
                 SqlParameter[] param = new SqlParameter[2];
                 param[0] = new SqlParameter("@userid", SqlDbType.Int);
                 param[0].Value = Session["id"];
                 param[1] = new SqlParameter("@Count_3", SqlDbType.Int);
-                param[1].Value = count;
+                param[1].Value = count3;
                 int result = objdf.ExecuteQuery("usp_UpdateCount3", param);
                 if (result > 0)
                 {
@@ -341,14 +342,14 @@ public partial class Inbox : System.Web.UI.Page
             else
             {
 
-                if (ds.Tables[0].Rows.Count < count)
+                if (ds.Tables[0].Rows.Count < count3)
                 {
-                    count = ds.Tables[0].Rows.Count;
+                    count3 = ds.Tables[0].Rows.Count;
                     SqlParameter[] param = new SqlParameter[2];
                     param[0] = new SqlParameter("@userid", SqlDbType.Int);
                     param[0].Value = Session["id"];
                     param[1] = new SqlParameter("@Count_3", SqlDbType.Int);
-                    param[1].Value = count;
+                    param[1].Value = count3;
                     int result = objdf.ExecuteQuery("usp_UpdateCount3", param);
                     if (result > 0)
                     {
@@ -357,29 +358,28 @@ public partial class Inbox : System.Web.UI.Page
 
                 }
             }
-        }
+        
     }
 
-    protected void Repeater5_ItemDataBound(object sender, RepeaterItemEventArgs e)
+    public void Count_5()
     {
-        if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-        {
-            int count = 0;
+       
+            int count5 = 0;
 
             ds = objdf.FillDsS("select * from RequestMaster where Sender_Id = '" + Session["id"] + "' and Confrim ='" + 0 + "' and _Delete ='" + 1 + "'");
             ds2 = objdf.FillDsS("Select Count_5 from Count_Master where Person_Id = '" + Session["id"] + "'");
-            count = Convert.ToInt32(ds2.Tables[0].Rows[0]["Count_5"].ToString());
-            if (ds.Tables[0].Rows.Count > count)
+            count5 = Convert.ToInt32(ds2.Tables[0].Rows[0]["Count_5"].ToString());
+            if (ds.Tables[0].Rows.Count > count5)
             {
-                count = ds.Tables[0].Rows.Count - count;
-                lbldelete.Text = count.ToString();
-                count = ds.Tables[0].Rows.Count;
+                count5 = ds.Tables[0].Rows.Count - count5;
+                lbldelete.Text = count5.ToString();
+                count5 = ds.Tables[0].Rows.Count;
 
                 SqlParameter[] param = new SqlParameter[2];
                 param[0] = new SqlParameter("@userid", SqlDbType.Int);
                 param[0].Value = Session["id"];
                 param[1] = new SqlParameter("@Count_5", SqlDbType.Int);
-                param[1].Value = count;
+                param[1].Value = count5;
                 int result = objdf.ExecuteQuery("usp_UpdateCount5", param);
                 if (result > 0)
                 {
@@ -390,14 +390,14 @@ public partial class Inbox : System.Web.UI.Page
             else
             {
 
-                if (ds.Tables[0].Rows.Count < count)
+                if (ds.Tables[0].Rows.Count < count5)
                 {
-                    count = ds.Tables[0].Rows.Count;
+                    count5 = ds.Tables[0].Rows.Count;
                     SqlParameter[] param = new SqlParameter[2];
                     param[0] = new SqlParameter("@userid", SqlDbType.Int);
                     param[0].Value = Session["id"];
                     param[1] = new SqlParameter("@Count_5", SqlDbType.Int);
-                    param[1].Value = count;
+                    param[1].Value = count5;
                     int result = objdf.ExecuteQuery("usp_UpdateCount5", param);
                     if (result > 0)
                     {
@@ -406,29 +406,28 @@ public partial class Inbox : System.Web.UI.Page
 
                 }
             }
-        }
+        
     }
 
-    protected void Repeater4_ItemDataBound(object sender, RepeaterItemEventArgs e)
+    public void Count_4()
     {
-        if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-        {
-            int count = 0;
+       
+            int count4 = 0;
 
             ds = objdf.FillDsS("select * from RequestMaster where Sender_Id = '" + Session["id"] + "' and Confrim ='" + 1 + "' and _Delete ='" + 0 + "' or Recevier_Id = '" + Session["id"] + "' and Confrim ='" + 1 + "' and _Delete ='" + 0 + "' ");
             ds2 = objdf.FillDsS("Select Count_4 from Count_Master where Person_Id = '" + Session["id"] + "'");
-            count = Convert.ToInt32(ds2.Tables[0].Rows[0]["Count_4"].ToString());
-            if (ds.Tables[0].Rows.Count > count)
+            count4 = Convert.ToInt32(ds2.Tables[0].Rows[0]["Count_4"].ToString());
+            if (ds.Tables[0].Rows.Count > count4)
             {
-                count = ds.Tables[0].Rows.Count - count;
-                lblFriends.Text = count.ToString();
-                count = ds.Tables[0].Rows.Count;
+                count4 = ds.Tables[0].Rows.Count - count4;
+                lblFriends.Text = count4.ToString();
+                count4 = ds.Tables[0].Rows.Count;
 
                 SqlParameter[] param = new SqlParameter[2];
                 param[0] = new SqlParameter("@userid", SqlDbType.Int);
                 param[0].Value = Session["id"];
                 param[1] = new SqlParameter("@Count_4", SqlDbType.Int);
-                param[1].Value = count;
+                param[1].Value = count4;
                 int result = objdf.ExecuteQuery("usp_UpdateCount4", param);
                 if (result > 0)
                 {
@@ -439,14 +438,14 @@ public partial class Inbox : System.Web.UI.Page
             else
             {
 
-                if (ds.Tables[0].Rows.Count < count)
+                if (ds.Tables[0].Rows.Count < count4)
                 {
-                    count = ds.Tables[0].Rows.Count;
+                    count4 = ds.Tables[0].Rows.Count;
                     SqlParameter[] param = new SqlParameter[2];
                     param[0] = new SqlParameter("@userid", SqlDbType.Int);
                     param[0].Value = Session["id"];
                     param[1] = new SqlParameter("@Count_4", SqlDbType.Int);
-                    param[1].Value = count;
+                    param[1].Value = count4;
                     int result = objdf.ExecuteQuery("usp_UpdateCount4", param);
                     if (result > 0)
                     {
@@ -455,6 +454,6 @@ public partial class Inbox : System.Web.UI.Page
 
                 }
             }
-        }
+        
     }
 }
