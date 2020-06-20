@@ -237,7 +237,8 @@ background-color: #972cc3;
                         <ul class="nav navbar-nav">
                             <li><a href="home.aspx">Home</a></li>
                             <li><a href="match.aspx">Match</a></li>
-                            <li class="active"><a href="search.aspx">Search</a></li>
+                            <li><a href="search.aspx">Search</a></li>
+                            <li><a href="Inbox.aspx">Inbox</a></li>
                             <li><a href="about.aspx">About</a></li>
                             <li><a href="contact.aspx">Contact</a></li>
                         </ul>
@@ -245,13 +246,16 @@ background-color: #972cc3;
                     <div class="col-md-2" style="">
                         <div class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <img src="img/usericon1.png" style="border-radius: 50%; height: 30px; width: 30px;" /><asp:Label ID="lblusername" runat="server" Text=""></asp:Label><span class="caret"></span></a>
+                                <img src="img/usericon1.png" style="border-radius: 50%; height: 30px; width: 30px;" /><asp:Label ID="lblusername" runat="server" Text="loky kumar"></asp:Label><span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="user.aspx">My Profile</a></li>
                                 <li>
                                     <asp:LinkButton ID="lnkogout" runat="server" OnClick="lnkogout_Click">Logout</asp:LinkButton></li>
+                     
+
                             </ul>
                         </div>
+
                     </div>
                 </nav>
             </div>
@@ -275,6 +279,8 @@ background-color: #972cc3;
                 </div>
                 <div class="col-md-6"></div>
             </div>
+            
+            
             <div class="row" style="margin-bottom:60px;margin-top:20px;">
                 <div class="col-md-4" style="margin-top: 30px;">
 
@@ -293,7 +299,7 @@ background-color: #972cc3;
                             
                              <label class="editlabelsearch">
                                 <p class="label-txt">Max Age</p>
-                                <asp:TextBox ID="TextBox2" class="form-control, input" runat="server" ></asp:TextBox>
+                                <asp:TextBox ID="txtagemax" class="form-control, input" runat="server" ></asp:TextBox>
                                 <div class="line-box">
                                     <div class="line"></div>
                                 </div>
@@ -351,7 +357,7 @@ background-color: #972cc3;
                     <div class="scrollbar scrollbar-primary">
                         <div style="direction:ltr;">
                         <!--Repeater-->
-                        <asp:Repeater ID="Repeater1" runat="server">
+                        <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand" OnItemDataBound="Repeater1_ItemDataBound">
                             <ItemTemplate>
                                 <div class="repeater">
                                     <div class="row" style="margin:0;">
@@ -363,11 +369,11 @@ background-color: #972cc3;
                                                  </ul>
                                         </div>
                                         
-                                        <div class="col-md-4">
+                                        <div class="col-md-4" style="margin-top:-5px;">
                                               <ul>
                                                   <li>
                                                      <asp:Label ID="lblname" runat="server" Text='<%# Bind("username") %>'></asp:Label>
-                                                      <div style="border-bottom:1px solid #ddd"></div>
+                                                      <div style="border-bottom:1px solid #ddd;width:219px;"></div>
                                                   </li>
                                                <li>
                                                     <asp:Label ID="lblage" runat="server" Text='<%# Bind("age") %>'></asp:Label>Years,
@@ -377,13 +383,53 @@ background-color: #972cc3;
                                             
                                                   </li>
                                                 <li>
-                                                    <asp:Label ID="lblcity" runat="server" Text='<%# Bind("city") %>'></asp:Label></li>
+                                                    <asp:Label ID="lblcity" runat="server" Text='<%# Bind("city") %>'></asp:Label> /
+                                                    <asp:Label ID="lblstate" runat="server" Text='<%# Bind("state") %>'></asp:Label>
+                                                    
+                                                </li>
+                                                  <li>
+                                                      <asp:Label ID="lblmt" runat="server" Text='<%# Bind("mothertongue") %>'></asp:Label> /
+                                                      <asp:Label ID="lblcountry" runat="server" Text='<%# Bind("country") %>'></asp:Label>
+                                                  </li>
                                                 <li>
-                                                    <asp:Label ID="lblreligion" runat="server" Text='<%# Bind("religion") %>'></asp:Label>
+                                                    <asp:Label ID="lblreligion" runat="server" Text='<%# Bind("religion") %>'></asp:Label> /
+                                                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("caste") %>'></asp:Label>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="col-md-4"></div>
+                                        <div class="col-md-2" style="margin-top:15px;">
+                                            <ul>
+                                                  <li>
+                                                    <div style="border-bottom:1px solid #ddd;width:150px;"></div>
+                                                  </li>
+                                                 <li>
+                                                    <asp:HiddenField ID="hiddid" runat="server" Value='<%# Bind("id")%>' />
+                                                </li>
+                                               <li>
+                                                    <asp:Label ID="lblHE" runat="server" Text='<%# Bind("heighesteducation") %>'></asp:Label>
+                                                </li>
+                                                  <li>
+                                                      <asp:Label ID="lbloccupation" runat="server" Text='<%# Bind("occupation") %>'></asp:Label>
+                                            
+                                                  </li>
+                                                <li>
+                                                    <asp:Label ID="lblannualincome" runat="server" Text='<%# Bind("annualincome") %>'></asp:Label></li>
+                                                <li>
+                                                    <asp:Label ID="lblms" runat="server" Text='<%# Bind("maritalstatus") %>'></asp:Label>
+                                                </li>
+                                            </ul>
+                                             
+                                        </div>
+                                        <div class="col-md-2" style="margin-top:15px;">
+                                            <ul>
+                                                  <li>
+                                                    <div style="border-bottom:1px solid #ddd;width:50px;"></div>
+                                                  </li>
+                                                </ul>
+                                             <asp:Button ID="btnrequest" runat="server" class="btn btn-primary" Text="Request" CommandName="Request"/>
+                                             <asp:Button ID="btnprofile" runat="server" class="btn btn-primary" Text="View Profile" style="width:78px;height:30px;font-size:10px;" Visible="False" />
+                                            
+                                        </div>
                                     
                                   </div>
                                 </div>

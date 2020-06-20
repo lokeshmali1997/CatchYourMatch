@@ -81,9 +81,11 @@
     <ul class="nav navbar-nav">
       <li ><a href="home.aspx">Home</a></li>
       <li><a href="match.aspx">Match</a></li>
-      <li class="active"><a href="search.aspx">Search</a></li>
+      <li><a href="search.aspx">Search</a></li>
+      <li><a href="Inbox.aspx">Inbox</a></li>
       <li><a href="about.aspx">About</a></li>
       <li><a href="contact.aspx">Contact</a></li>
+      
   
         
          </ul>
