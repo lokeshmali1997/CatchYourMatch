@@ -10,6 +10,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link href="Search.css" rel="stylesheet" />
     <style>
+        .errorClass{
+            color:red;
+        }
         .editlabelsearch {
             display: block;
             position: relative;
@@ -140,8 +143,85 @@ background-color: #972cc3;
             });
 
         });
+        
+    function searchValid()
+    {
+        var age,maxAge,religion,caste,motherTounge,city;
+        age = document.getElementById("txtagemin").value;
+        maxAge = document.getElementById("TextBox2").value;
+        religion = document.getElementById("txtreligion").value;
+        motherTounge = document.getElementById("txtmothertongue").value;
+        city = document.getElementById("txtcity").value;
+        caste = document.getElementById("txtcaste").value;
+
+
+
+        if (age != "")
+        {
+            if(age>= 18 && age <60)
+            {
+                document.getElementById('lblAgeMinError').innerHTML = "";
+                if(maxAge != "")
+                {
+                    if(maxAge<60)
+                    {
+                        document.getElementById('lblAgeMaxError').innerHTML = "";
+                        if(religion != "")
+                        {
+                            document.getElementById('lblReligionError').innerHTML = "";
+                            if (caste != "") {
+                                document.getElementById('lblCasteError').innerHTML = "";
+                                if (motherTounge != '') {
+                                    document.getElementById('lblMotherToungeError').innerHTML = "";
+                                    if (city != "") {
+                                        document.getElementById('lblCityError').innerHTML = "";
+                                        return true;
+                                    }
+                                    else {
+                                        document.getElementById('lblCityError').innerHTML = "Please Enter Values";
+                                        return false;
+                                    }
+                                }
+                                else {
+                                    document.getElementById('lblMotherToungeError').innerHTML = "Please Enter Values";
+                                    return false;
+                                }
+                            }
+                            else {
+                                document.getElementById('lblCasteError').innerHTML = "Please Enter Caste!";
+                                return false;
+                            }
+                        }
+                        else {
+                            document.getElementById('lblReligionError').innerHTML = "Please Enter Values";
+                            return false;
+                        }
+                    }
+                    else {
+                        document.getElementById('lblAgeMaxError').innerHTML = "maxAge should be 60";
+                        return false;
+                    }
+                }
+                else {
+                    document.getElementById('lblAgeMaxError').innerHTML = "Please Enter Values";
+                    return false;
+                }
+            } else {
+                document.getElementById('lblAgeMinError').innerHTML = "Age should be in between 18 and 60 ";
+                return false;
+            }
+        }
+        else {
+            document.getElementById('lblAgeMinError').innerHTML = "Please Enter Values";
+            return false;
+        }
+        
+        
+       
+    }
     </script>
 </head>
+
 <body style="background: #ddd">
     <form id="form1" runat="server">
         <div class="container-fluid">
@@ -167,7 +247,7 @@ background-color: #972cc3;
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                 <img src="img/usericon1.png" style="border-radius: 50%; height: 30px; width: 30px;" /><asp:Label ID="lblusername" runat="server" Text=""></asp:Label><span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="myprofile.aspx">My Profile</a></li>
+                                <li><a href="user.aspx">My Profile</a></li>
                                 <li>
                                     <asp:LinkButton ID="lnkogout" runat="server" OnClick="lnkogout_Click">Logout</asp:LinkButton></li>
                             </ul>
@@ -203,16 +283,21 @@ background-color: #972cc3;
                             <label class="editlabelsearch">
                                 <p class="label-txt">Age</p>
                                 <asp:TextBox ID="txtagemin" class="form-control, input" runat="server" ></asp:TextBox>
+                                
                                 <div class="line-box">
                                     <div class="line"></div>
                                 </div>
+                                <span id="lblAgeMinError" class="errorClass"> </span> 
+
                             </label>
+                            
                              <label class="editlabelsearch">
                                 <p class="label-txt">Max Age</p>
                                 <asp:TextBox ID="TextBox2" class="form-control, input" runat="server" ></asp:TextBox>
                                 <div class="line-box">
                                     <div class="line"></div>
                                 </div>
+                                   <span id="lblAgeMaxError" class="errorClass"> </span> 
                             </label>
                             <label class="editlabelsearch" style="width:100%;">
                                 <p class="label-txt">Religion</p>
@@ -220,6 +305,7 @@ background-color: #972cc3;
                                 <div class="line-box">
                                     <div class="line"></div>
                                 </div>
+                                 <span id="lblReligionError" class="errorClass"> </span>
                             </label>
                             <label class="editlabelsearch" style="width:100%;">
                                 <p class="label-txt">Caste</p>
@@ -227,6 +313,7 @@ background-color: #972cc3;
                                 <div class="line-box">
                                     <div class="line"></div>
                                 </div>
+                                 <span id="lblCasteError" class="errorClass"> </span>
                             </label>
                             <label class="editlabelsearch" style="width:100%;">
                                 <p class="label-txt">Mother Tounge</p>
@@ -234,6 +321,7 @@ background-color: #972cc3;
                                 <div class="line-box">
                                     <div class="line"></div>
                                 </div>
+                                  <span id="lblMotherToungeError" class="errorClass"> </span>
                             </label>
                             <label class="editlabelsearch" style="width:100%;">
                                 <p class="label-txt">City</p>
@@ -241,8 +329,9 @@ background-color: #972cc3;
                                 <div class="line-box">
                                     <div class="line"></div>
                                 </div>
+                                  <span id="lblCityError" class="errorClass"> </span>
                             </label>
-                            <asp:Button ID="Button1" runat="server" class="editsearchbtn" OnClick="Button1_Click" Text="Search" />
+                            <asp:Button ID="Button1" runat="server" class="editsearchbtn" OnClientClick="return searchValid()"  Text="Search" />
                         </div>
 
                         <div class="tab-pane fade" id="profile" role="tabpanel">

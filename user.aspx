@@ -227,7 +227,88 @@
             border-color: #972cc3;
         }    
          
+      
     </style>
+    <script>
+        function userValid() {
+            var name, email, contact, status;
+            name = document.getElementById("txtname").value;
+            email = document.getElementById("txtemail").value;
+            contact = document.getElementById("txtcontact").value;
+            status = document.getElementById("txtMS").value;
+            var valid = /^[A-Za-z]+$/;
+            
+
+            if (name != "") {
+                if (valid.test(name) == true) {
+                    document.getElementById('lblNameError').innerHTML = "";
+                    if (email != "") {
+                        if (validEmail()) {
+                            document.getElementById('lblEmailError').innerHTML = "";
+                            if (contact != "") {
+                                if (!isNaN(contact)) {
+                                    document.getElementById('lblcontactError').innerHTML = "";
+                                    if (status != "") {
+                                        if (isNaN(status)) {
+                                            document.getElementById('lblStatusError').innerHTML = "";
+                                            return true;
+                                        }
+                                        else {
+                                            document.getElementById('lblStatusError').innerHTML = "Please enter only character!";
+                                            return false;
+                                        }
+                                    }
+                                    else {
+                                        document.getElementById('lblStatusError').innerHTML = "Please enter value!";
+                                        return false;
+                                    }
+                                }
+                                else {
+                                    document.getElementById('lblcontactError').innerHTML = "Please enter only number!";
+                                    return false;
+                                }
+                            }
+                            else {
+                                document.getElementById('lblcontactError').innerHTML = "Please enter value!";
+                                return false;
+                            }
+                        }
+                        else {
+                            document.getElementById('lblEmailError').innerHTML = "Invalid email!";
+                            return false;
+                        }
+                    }
+                    else {
+                        document.getElementById('lblEmailError').innerHTML = "Please enter value!";
+                        return false;
+                    }
+                }
+                else {
+                    document.getElementById('lblNameError').innerHTML = "number not allowed!";
+                    return false;
+                }
+            }
+            else {
+                document.getElementById('lblNameError').innerHTML = "Please enter value!";
+                return false;
+            }
+        }
+
+
+        function validEmail() {
+            var email = document.getElementById("txtemail").value;
+            var atposition = email.indexOf("@");
+            var dotposition = email.lastIndexOf(".");
+            if(atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= email.length)
+            {
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
+    </script>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -273,7 +354,7 @@
                 <div class="col-md-4">
                     <div>
                         <asp:Image ID="Image1" runat="server" Width="80%" Height="148" style="box-shadow:0 1px 6px 1px #818182;border-radius:7px;" ImageUrl="~/img/usericon1.png"/>
-                       
+                           
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -338,16 +419,20 @@
                                                  <div class="form-group">
                                                     
                                                         <asp:TextBox ID="txtname" runat="server" class="form-input" placeholder="Name" style="border-color:red;"></asp:TextBox>
-                                                    
+                                                            <span id="lblNameError" class="errorClass"> </span> 
                                                           </div>
                                                      <div class="form-group">
+                                                          
                                                           <asp:TextBox ID="txtemail" runat="server" class="form-input" placeholder="Email"></asp:TextBox>
+                                                            <span id="lblEmailError" class="errorClass"> </span> 
                                                      </div>
                                                      <div class="form-group">
                                                          <asp:TextBox ID="txtcontact" runat="server" class="form-input" placeholder="Contact"></asp:TextBox>
+                                                         <span id="lblcontactError" class="errorClass"> </span> 
                                                  </div>
                                                  <div class="form-group">
                                                          <asp:TextBox ID="txtMS" runat="server" class="form-input" placeholder="Marital Status"></asp:TextBox>
+                                                     <span id="lblStatusError" class="errorClass"> </span> 
                                                  </div>
                                              </div>
                                        </div>
@@ -390,7 +475,7 @@
                                </div>                                 
                             </div>
                             <div class="modal-footer">
-                                <asp:Button ID="UpdateUserDetails" runat="server" Text="Update" class="btn" OnClick="UpdateUserDetails_Click"/>
+                                <asp:Button ID="UpdateUserDetails" runat="server" Text="Update" class="btn" OnClientClick="return userValid()" OnClick="UpdateUserDetails_Click"/>
                             </div>
                         </div>
                     </div>
