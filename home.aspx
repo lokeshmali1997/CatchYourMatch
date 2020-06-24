@@ -6,12 +6,12 @@
 <head runat="server">
     <title></title>
 
-      <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
 
     <style>
         .row {
@@ -26,7 +26,7 @@
         }
 
         .navbar-nav {
-            margin-top: 20px;
+            margin-top: 10px;
             margin-left: 0em;
         }
 
@@ -35,7 +35,8 @@
         }
 
         .navbar-nav li a {
-            margin-left: 50px;
+            //margin-left: 50px;
+            padding:30px;
             color: #ddd;
             font-size: 16px;
         }
@@ -65,6 +66,43 @@
 
             .dropdown .dropdown-menu a {
                 padding: 10px 20px;
+            }
+            .profilebox{
+                background: white;
+                border-radius: 10px;
+                margin:20px;
+                padding:20px 20px 20px 20px;
+
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            .profileimg img{
+                Width:100%;
+                Height:200px;
+                border-radius:10px;
+            }
+            .profileimg ul{
+                padding-left:0px;
+                list-style-type:none;
+                 color:rgba(0, 0, 0,0.6);
+                 font-size:12px;
+                 font-family:Verdana;
+                 
+            }
+            .profileimg ul li{
+                padding:5px;
+            //    border-bottom:1px solid #eee;
+                margin-top:5px; 
+            }
+            .pprofileimg h4{
+               font-family:'Arial Rounded MT';
+               font-weight:600;
+               font-size:16px;
+            }
+            .basicdetail{
+                 Width:100%;
+                Height:250px;
+                border-radius:10px;
+
             }
     </style>
 
@@ -98,7 +136,8 @@
 
                         <div class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <img src="img/usericon1.png" style="border-radius: 50%; height: 30px; width: 30px;" /><asp:Label ID="lblusername" runat="server" Text="loky kumar"></asp:Label><span class="caret"></span></a>
+                                   <asp:Image ID="Image2" runat="server" style="border-radius: 50%; height: 30px; width: 30px;" ImageUrl="~/img/usericon1.png" />
+                                <asp:Label ID="lblusername" runat="server" Text="loky kumar"></asp:Label><span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="user.aspx">My Profile</a></li>
                                 <li><asp:LinkButton ID="lnkogout" runat="server" OnClick="lnkogout_Click">Logout</asp:LinkButton></li>
@@ -109,193 +148,175 @@
 
                 </nav>
             </div>
-            <div class="row" style="z-index: -1; height: 700px; padding: 0px; background: ; margin-top: 150px;">
-                <div class="col-md-1">
-                </div>
-                <div class="col-md-4">
-                    <asp:Image ID="Image1" runat="server" Width="80%" Height="300" ImageUrl="~/img/usericon1.png" />
-                </div>
-                <div class="col-md-6">
-                    <div class="row">
-                        <h3>Basic Details</h3>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Living Status With Family :</label>
-                            </div>
-                            <div class="col-md-6">
-                                <asp:Label ID="lblliving" runat="server" Text="Yes"></asp:Label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Marital Status :</label>
-                            </div>
-                            <div class="col-md-6">
-                                <asp:Label ID="lblmarital" runat="server" Text="Never Married"></asp:Label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Family Status :</label>
-                            </div>
-                            <div class="col-md-6">
-                                <asp:Label ID="lblfamily" runat="server" Text="middle class"></asp:Label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Height</label>
-                            </div>
-                            <div class="col-md-6">
-                                <asp:Label ID="lblheight" runat="server" Text="4ft 6in / 137cms"></asp:Label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Mother Tongue :</label>
-                            </div>
-                            <div class="col-md-6">
-                                <asp:Label ID="lblmt" runat="server" Text="Never Married"></asp:Label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Religion :</label>
-                            </div>
-                            <div class="col-md-6">
-                                <asp:Label ID="lblr" runat="server" Text="middle class"></asp:Label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Caste</label>
-                            </div>
-                            <div class="col-md-6">
-                                <asp:Label ID="lblc" runat="server" Text="4ft 6in / 137cms"></asp:Label>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="row">
-                        <h3>Personal Details</h3>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Age :</label>
-                            </div>
-                            <div class="col-md-6">
-                                <asp:Label ID="lblage" runat="server" Text=""></asp:Label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Deit :</label>
-                            </div>
-                            <div class="col-md-6">
-                                <asp:Label ID="lbldeit" runat="server" Text=""></asp:Label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Drinking / Smoking :</label>
-                            </div>
-                            <div class="col-md-6">
-                                <asp:Label ID="lblds" runat="server" Text=""></asp:Label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Physical Status :</label>
-                            </div>
-                            <div class="col-md-6">
-                                <asp:Label ID="lblps" runat="server" Text=""></asp:Label>
-                            </div>
-                        </div>
-                    </div>
+            <div class="row" style="margin-top:150px;">
+                <div class="col-lg-1"></div>
 
-                    <div class="row">
-                        <h3>Education / Career Details</h3>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Heighest Education :</label>
-                            </div>
-                            <div class="col-md-6">
-                                <asp:Label ID="lblhe" runat="server" Text=""></asp:Label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Employee In :</label>
-                            </div>
-                            <div class="col-md-6">
-                                <asp:Label ID="lblei" runat="server" Text=""></asp:Label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Occupation :</label>
-                            </div>
-                            <div class="col-md-6">
-                                <asp:Label ID="lblocc" runat="server" Text=""></asp:Label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Annual Income :</label>
-                            </div>
-                            <div class="col-md-6">
-                                <asp:Label ID="lblai" runat="server" Text=""></asp:Label>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-lg-4" style="background:none" >
 
-                    <div class="row">
-                        <h3>About YourSelf</h3>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>About me :</label>
-                            </div>
-                            <div class="col-md-6">
-                                <asp:Label ID="lblabout" runat="server" Text=""></asp:Label>
-                            </div>
+                    <div class="profilebox" style=" height:400px;width:80%;">
+                        <div class="profileimg">
+                            <asp:Image ID="Image1" runat="server" CssClass="img" ImageUrl="~/img/usericon1.png" />
+                            <h4 style="margin-top:20px">My Profile</h4>
+                            <h5> </h5>
+                            <ul>
+                                <li style=" border-bottom:1px solid #eee;">My Bio : <asp:Label ID="lblabout" runat="server" Text=""></asp:Label></li>
+                                <li style=" border-bottom:1px solid #eee;"><asp:Label ID="lblusername1" runat="server" Text="loky kumar"></asp:Label></li>
+                                <li style=" border-bottom:1px solid #eee;"><asp:Label ID="lblemail" runat="server" Text=""></asp:Label></li>
+                            </ul>
                         </div>
 
-                    </div>
-
-                    <div class="row">
-                        <h3>Location Details</h3>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>City :</label>
-                            </div>
-                            <div class="col-md-6">
-                                <asp:Label ID="lblcity" runat="server" Text=""></asp:Label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>State :</label>
-                            </div>
-                            <div class="col-md-6">
-                                <asp:Label ID="lblstate" runat="server" Text=""></asp:Label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Country :</label>
-                            </div>
-                            <div class="col-md-6">
-                                <asp:Label ID="lblcon" runat="server" Text=""></asp:Label>
-                            </div>
-                        </div>
 
                     </div>
 
                 </div>
+               
+                <div class="col-lg-6">
+
+                    <div class="profilebox">
+
+                        <div class="basicdetail profileimg">
+                             <h4 style="border-bottom:1px solid #eee;padding-bottom:10px">Basic Details</h4>
+                           
+                            <div class="row">
+                                <div class="col-lg-6">
+                                     <ul>
+                                <li>Living Status With Family :</li>
+                                 <li>Marital Status           :</li>
+                                 <li>Family Status            :</li>
+                                 <li>Height</li>
+                                 <li>Mother Tongue :</li>
+                                 <li>Religion :</li>
+                                 <li>Caste:</li>
+                            </ul>
+                                </div>
+                                <div class="col-lg-6">
+                                <ul>
+                                 <li><asp:Label ID="lblliving" runat="server" Text="Yes"></asp:Label></li>
+                                 <li> <asp:Label ID="lblmarital" runat="server" Text="Never Married"></asp:Label></li>
+                                 <li><asp:Label ID="lblfamily" runat="server" Text="middle class"></asp:Label></li>
+                                 <li>  <asp:Label ID="lblheight" runat="server" Text="4ft 6in / 137cms"></asp:Label></li>
+                                 <li> <asp:Label ID="lblmt" runat="server" Text="Never Married"></asp:Label></li>
+                                 <li><asp:Label ID="lblr" runat="server" Text="middle class"></asp:Label></li>
+                                 <li> <asp:Label ID="lblc" runat="server" Text="4ft 6in / 137cms"></asp:Label></li>
+                            </ul>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                    <div class="profilebox" style="margin-top:50px">
+
+                        <div class=" profileimg">
+                             <h4 style="border-bottom:1px solid #eee;padding-bottom:10px">Personal Details</h4>
+                           
+                            <div class="row">
+                                <div class="col-lg-6">
+                                     <ul>
+                                <li>Age : </li>
+                                 <li>Deit :</li>
+                                 <li>Drinking / Smoking :</li>
+                                 <li>Physical Status :</li>
+                                 <li>Mother Tongue :</li>
+                                 <li>Religion :</li>
+                                 <li>Caste:</li>
+                            </ul>
+                                </div>
+                                <div class="col-lg-6">
+                                <ul>
+                                 <li><asp:Label ID="lblage" runat="server" Text=""></asp:Label></li>
+                                 <li> <asp:Label ID="lbldeit" runat="server" Text=""></asp:Label></li>
+                                 <li> <asp:Label ID="lblds" runat="server" Text=""></asp:Label></li>
+                                 <li> <asp:Label ID="lblps" runat="server" Text=""></asp:Label></li>
+                                 <li> <asp:Label ID="Label5" runat="server" Text="Never Married"></asp:Label></li>
+                                 <li><asp:Label ID="Label6" runat="server" Text="middle class"></asp:Label></li>
+                                 <li> <asp:Label ID="Label7" runat="server" Text="4ft 6in / 137cms"></asp:Label></li>
+                            </ul>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                    <div class="profilebox" style="margin-top:50px">
+
+                        <div class=" profileimg">
+                             <h4 style="border-bottom:1px solid #eee;padding-bottom:10px">Education / Career Details</h4>
+                           
+                            <div class="row">
+                                <div class="col-lg-6">
+                            <ul>
+                                <li>Heighest Education : </li>
+                                 <li>Employee In :</li>
+                                 <li>Occupation :</li>
+                                 <li>Annual Income :</li>
+                                 
+                            </ul>
+                                </div>
+                                <div class="col-lg-6">
+                                <ul>
+                                 <li><asp:Label ID="lblhe" runat="server" Text=""></asp:Label></li>
+                                 <li> <asp:Label ID="lblei" runat="server" Text=""></asp:Label></li>
+                                 <li> <asp:Label ID="lblocc" runat="server" Text=""></asp:Label></li>
+                                 <li> <asp:Label ID="lblai" runat="server" Text=""></asp:Label></li>
+                                
+                            </ul>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                    <div class="profilebox" style="margin-top:50px">
+
+                        <div class=" profileimg">
+                             <h4 style="border-bottom:1px solid #eee;padding-bottom:10px">Location Details</h4>
+                           
+                            <div class="row">
+                                <div class="col-lg-6">
+                            <ul>
+                                <li>City : </li>
+                                 <li>State :</li>
+                                 <li>Country :</li>
+                                 
+                                 
+                            </ul>
+                                </div>
+                                <div class="col-lg-6">
+                                <ul>
+                                 <li><asp:Label ID="lblcity" runat="server" Text=""></asp:Label></li>
+                                 <li><asp:Label ID="lblstate" runat="server" Text=""></asp:Label></li>
+                                 <li><asp:Label ID="lblcon" runat="server" Text=""></asp:Label></li>
+                            
+                                
+                            </ul>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+                <div class="col-lg-1"></div>
+            </div>
+
+          
                 <div class="col-md-1">
                 </div>
             </div>
 
-        </div>
+       
 
         <div class="row" style="background: #ddd; margin-top: 50px">
             <div class="col-md-3"></div>

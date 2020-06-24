@@ -23,15 +23,16 @@
             background: #8e44ad;
         }
         .navbar-nav {
-            margin-top: 20px;
+            margin-top: 10px;
             margin-left: 0em;
         }
         .navbar-header {
             margin-top: 20px;
         }
         .navbar-nav li a {
-            margin-left: 50px;
-            color: #ddd;
+         //   margin-left: 50px;
+         padding:30px;  
+          color: #ddd;
             font-size: 16px;
         }
         .navbar-nav li a:hover {

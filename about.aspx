@@ -20,7 +20,7 @@
     background:#8e44ad;
 }
 .navbar-nav{
-    margin-top:20px;
+    margin-top:10px;
     margin-left:0em;
     
 }
@@ -29,7 +29,8 @@
 
 }
 .navbar-nav  li a {
-    margin-left:50px;
+    //margin-left:50px;
+    padding:30px;
     color:#ddd;
     font-size:16px;
 }
