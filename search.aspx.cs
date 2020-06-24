@@ -25,12 +25,7 @@ public partial class search : System.Web.UI.Page
         lblusername.Text = "Hi" + " " + Session["username"];
        
     }
-
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        
-        FillJobsRepeater();
-    }
+    
 
    public void FillJobsRepeater()
     {
@@ -160,5 +155,10 @@ public partial class search : System.Web.UI.Page
             }
         }
         
+    }
+
+    protected void Button1_Click1(object sender, EventArgs e)
+    {
+        FillJobsRepeater();
     }
 }

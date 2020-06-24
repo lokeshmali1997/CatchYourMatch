@@ -144,11 +144,11 @@ background-color: #972cc3;
 
         });
         
-    function searchValid()
+        function searchValid()
     {
         var age,maxAge,religion,caste,motherTounge,city;
         age = document.getElementById("txtagemin").value;
-        maxAge = document.getElementById("TextBox2").value;
+        maxAge = document.getElementById("txtagemax").value;
         religion = document.getElementById("txtreligion").value;
         motherTounge = document.getElementById("txtmothertongue").value;
         city = document.getElementById("txtcity").value;
@@ -158,12 +158,12 @@ background-color: #972cc3;
 
         if (age != "")
         {
-            if(age>= 18 && age <60)
+            if(age>= 18 && age <=60)
             {
                 document.getElementById('lblAgeMinError').innerHTML = "";
                 if(maxAge != "")
                 {
-                    if(maxAge<60)
+                    if(maxAge<=60)
                     {
                         document.getElementById('lblAgeMaxError').innerHTML = "";
                         if(religion != "")
@@ -337,7 +337,7 @@ background-color: #972cc3;
                                 </div>
                                   <span id="lblCityError" class="errorClass"> </span>
                             </label>
-                            <asp:Button ID="Button1" runat="server" class="editsearchbtn" OnClientClick="return searchValid()"  Text="Search" />
+                            <asp:Button ID="Button1" runat="server" class="editsearchbtn" OnClientClick="return searchValid()"  Text="Search" OnClick="Button1_Click1" />
                         </div>
 
                         <div class="tab-pane fade" id="profile" role="tabpanel">

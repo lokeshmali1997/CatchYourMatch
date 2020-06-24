@@ -45,7 +45,7 @@ public partial class _Default : System.Web.UI.Page
            lblusername1.Text = ds.Tables[0].Rows[0]["username"].ToString();
             lblemail.Text = ds.Tables[0].Rows[0]["useremail"].ToString();
             Image1.ImageUrl = ds.Tables[0].Rows[0]["profileimage"].ToString();
-            Image2.ImageUrl = ds.Tables[0].Rows[0]["profileimage"].ToString();
+            Image2.ImageUrl = Image1.ImageUrl;
             lblliving.Text  = ds.Tables[0].Rows[0]["livingstatus"].ToString();
             lblmarital.Text = ds.Tables[0].Rows[0]["maritalstatus"].ToString();
             lblfamily.Text = ds.Tables[0].Rows[0]["familystatus"].ToString();
