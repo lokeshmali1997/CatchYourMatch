@@ -154,15 +154,17 @@
 
                 <div class="col-lg-4" style="background:none" >
 
-                    <div class="profilebox" style=" height:400px;width:80%;">
+                    <div class="profilebox" style="width:80%;">
                         <div class="profileimg">
                             <asp:Image ID="Image1" runat="server" CssClass="img" ImageUrl="~/img/usericon1.png" />
                             <h4 style="margin-top:20px">My Profile</h4>
                             <h5> </h5>
                             <ul>
+                                 
                                 <li style=" border-bottom:1px solid #eee;">My Bio : <asp:Label ID="lblabout" runat="server" Text=""></asp:Label></li>
                                 <li style=" border-bottom:1px solid #eee;"><asp:Label ID="lblusername1" runat="server" Text="loky kumar"></asp:Label></li>
                                 <li style=" border-bottom:1px solid #eee;"><asp:Label ID="lblemail" runat="server" Text=""></asp:Label></li>
+                                <li style=" border-bottom:1px solid #eee;">Contact : <asp:Label ID="lblContact" runat="server" Text=""></asp:Label></li>
                             </ul>
                         </div>
 

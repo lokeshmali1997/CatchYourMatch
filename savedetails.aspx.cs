@@ -9,6 +9,7 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.IO;
+using ImagerLib;
 
 public partial class savedetails : System.Web.UI.Page
 {
@@ -166,71 +167,103 @@ public partial class savedetails : System.Web.UI.Page
 
         param[0] = new SqlParameter("@username", SqlDbType.VarChar);
         param[0].Value = lblname.Text;
+
         param[1] = new SqlParameter("@useremail", SqlDbType.VarChar);
         param[1].Value = lblemail.Text;
+
         param[2] = new SqlParameter("@userpass", SqlDbType.VarChar);
         param[2].Value = lblpass.Text;
+
         param[3] = new SqlParameter("@dob", SqlDbType.VarChar);
         param[3].Value = lbldob.Text;
+
         param[4] = new SqlParameter("@gender", SqlDbType.Int);
         param[4].Value = lblgender.Text;
+
         param[5] = new SqlParameter("@mothertongue", SqlDbType.Int);
         param[5].Value = lblmothert.Text;
+
         param[6] = new SqlParameter("@religion", SqlDbType.Int);
         param[6].Value = lblreligion.Text;
+
         param[7] = new SqlParameter("@caste", SqlDbType.VarChar);
         param[7].Value = lblcaste.Text;
+
         param[8] = new SqlParameter("@country", SqlDbType.Int);
         param[8].Value = lblcountry.Text;
+
         param[9] = new SqlParameter("@state", SqlDbType.Int);
         param[9].Value = lblstate.Text;
+
         param[10] = new SqlParameter("@city", SqlDbType.Int);
         param[10].Value = lblcity.Text;
+
         param[11] = new SqlParameter("@usernumber", SqlDbType.BigInt);
         param[11].Value = lblnumber.Text;
+
         param[12] = new SqlParameter("@profile", SqlDbType.Int);
         param[12].Value = lblprofile.Text;
+
         param[13] = new SqlParameter("@livingstatus", SqlDbType.Int);
         param[13].Value = ddlfamily.SelectedValue;
+
         param[14] = new SqlParameter("@maritalstatus", SqlDbType.Int);
         param[14].Value = ddlmaritalstatus.SelectedValue;
+
         param[15] = new SqlParameter("@familystatus", SqlDbType.Int);
         param[15].Value = ddlfamilystatus.SelectedValue;
+
         param[16] = new SqlParameter("@height", SqlDbType.Int);
         param[16].Value = ddlheight.SelectedValue;
+
         param[17] = new SqlParameter("@age", SqlDbType.Int);
         param[17].Value = txtage.Text;
+
         param[18] = new SqlParameter("@deit", SqlDbType.Int);
         param[18].Value = ddldeit.SelectedValue;
+
         param[19] = new SqlParameter("@hobbies", SqlDbType.Int);
         param[19].Value = ddldrinking.SelectedValue;
+
         param[20] = new SqlParameter("@physicalstatus", SqlDbType.Int);
         param[20].Value = ddlphysicalstatus.SelectedValue;
+
         param[21] = new SqlParameter("@education", SqlDbType.VarChar);
         param[21].Value = txteducation.Text;
+
         param[22] = new SqlParameter("@employeein", SqlDbType.Int);
         param[22].Value = ddlemployee.SelectedValue;
+
         param[23] = new SqlParameter("@occupation", SqlDbType.VarChar);
         param[23].Value = txtoccupation.Text;
+
         param[24] = new SqlParameter("@income", SqlDbType.BigInt);
         param[24].Value = txtincome.Text;
+
         if (FileUpload1.HasFile)
         {
             if (checkextension(FileUpload1.FileName))
             {
-                if (FileUpload1.PostedFile.ContentLength < 1000000)
-                {
-                    string path = Server.MapPath("ProfileImage");
-                    path = path + "\\" + FileUpload1.FileName;
+                //if (FileUpload1.PostedFile.ContentLength < 1000000)
+                //{
+                //    string path = Server.MapPath("ProfileImage");
+                //    path = path + "\\" + FileUpload1.FileName;
 
-                    FileUpload1.SaveAs(path);
-                    param[25] = new SqlParameter("@profileimage", SqlDbType.VarChar);
-                    param[25].Value = "~\\ProfileImage\\" + FileUpload1.FileName;
-                }
-                else
-                {
-                    Response.Write("<script>alert('Image Size Minimum 1MB Only ')</script>");
-                }
+                //    FileUpload1.SaveAs(path);
+                //    param[25] = new SqlParameter("@profileimage", SqlDbType.VarChar);
+                //    param[25].Value = "~\\ProfileImage\\" + FileUpload1.FileName;
+                //}
+                //else
+                //{
+                //    Response.Write("<script>alert('Image Size Minimum 1MB Only ')</script>");
+                //}
+
+                string filename = Path.GetFileName(FileUpload1.PostedFile.FileName);
+                string imgPath = "D:/Hitesh Gehlot/Shop data/photos/collage/home frnds/";
+
+                string img = Imager.PerformImageResizeAndPutOnCanvas(imgPath, filename, 1500, 1500);
+                param[25] = new SqlParameter("@profileimage", SqlDbType.VarChar);
+                param[25].Value = "~\\ProfileImage\\" + filename;
             }
             else
             {

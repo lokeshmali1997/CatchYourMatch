@@ -89,7 +89,7 @@ public partial class emailverify : System.Web.UI.Page
             smtpClient.Port = 587;
             smtpClient.EnableSsl = true;
             smtpClient.UseDefaultCredentials = false;
-            smtpClient.Credentials = new NetworkCredential("lokeshmali1997@gmail.com", "lokesh#7412359");
+            smtpClient.Credentials = new NetworkCredential("lokeshmali1997@gmail.com", "loky@#7412359");
             smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtpClient.Send(mailMessage);
             f = true;

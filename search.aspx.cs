@@ -29,7 +29,7 @@ public partial class search : System.Web.UI.Page
 
    public void FillJobsRepeater()
     {
-        
+        lblNoResult.Text = "";
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["mycon"].ConnectionString);
         if (con.State == ConnectionState.Closed)
         {
@@ -53,23 +53,15 @@ public partial class search : System.Web.UI.Page
 
         DataSet table = new DataSet();
         adpt.Fill(table);
-        //if (table.Tables[0].Rows.Count > 0)
-        //{
-
-        //    for (int lr = 0; lr < a.Length; lr++)
-        //    {
-        //        if (a[lr] == Convert.ToInt32(table.Tables[0].Rows[0]["id"]))
-        //        {?
-
-        //            Response.Write("<script>alert("+ a[lr] +")</script>");
-        //            Button btnrq = Repeater1.FindControl("btnrequest") as Button;
-        //            btnrq.Enabled = false;
-        //        }
-        //    }
-
-        //}
+        int i = 0;
+        i = table.Tables[0].Rows.Count;
         Repeater1.DataSource = table;
         Repeater1.DataBind();
+        if (i == 0)
+        {
+            lblNoResult.Text = "Your Search did not match any result, Sorry !";
+        }
+      
     }
 
     protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -81,6 +73,11 @@ public partial class search : System.Web.UI.Page
             FillRequestData(R_Id, username);
             Button btn = (e.Item.FindControl("btnrequest") as Button);
             btn.Enabled = false;
+        }
+        if (e.CommandName == "ViewProfile")
+        {
+            int R_Id = Convert.ToInt32((e.Item.FindControl("hiddid") as HiddenField).Value);
+            Response.Redirect("~/ViewProfile.aspx?R_id="+R_Id+"");
         }
     }
     public void FillRequestData(int R_Id, string username)

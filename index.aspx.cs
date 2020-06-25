@@ -163,7 +163,7 @@ public partial class index : System.Web.UI.Page
         string number = txtsignnumber.Text;
         int profile = Int32.Parse(ddlprofilefor.SelectedValue);
 
-        Response.Redirect("savedetails.aspx?name=" + name + "&email=" + email + "&pass=" + pass + "&dob=" + date
+        Response.Redirect("~/savedetails.aspx?name=" + name + "&email=" + email + "&pass=" + pass + "&dob=" + date
             + "&gender=" + gender + "&mother=" + mothertongue + "&religion=" + religion + "&caste=" + caste + "&country=" + country
             + "&state=" + state + "&city=" + city + "&number=" + number + "&profile=" + profile);
 
