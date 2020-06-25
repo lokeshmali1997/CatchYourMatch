@@ -23,7 +23,9 @@ public partial class _Default : System.Web.UI.Page
             Response.Redirect("loginpage.aspx");
         }
             lblusername.Text = "Hi" + " " + Session["username"];
-            selectuserdetails();
+
+
+        selectuserdetails();
         
         
 
