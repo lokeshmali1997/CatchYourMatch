@@ -13,8 +13,98 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"/>
 
-    <link href="css/Home.css" rel="stylesheet" />
-    
+    <style>
+        .row {
+            margin: 0px;
+        }
+
+
+
+        .navbar {
+            height: 100px;
+            background: #8e44ad;
+        }
+
+        .navbar-nav {
+            margin-top: 10px;
+            margin-left: 0em;
+        }
+
+        .navbar-header {
+            margin-top: 20px;
+        }
+
+        .navbar-nav li a {
+            //margin-left: 50px;
+            padding:30px;
+            color: #ddd;
+            font-size: 16px;
+        }
+
+            .navbar-nav li a:hover {
+                background: none;
+            }
+
+            .navbar-nav li a:focus {
+                background: none;
+                color: #fff;
+            }
+
+        .dropdown {
+            background: none;
+            margin-top: 2em;
+        }
+
+            .dropdown a {
+                color: #ddd;
+                text-decoration: none;
+            }
+
+                .dropdown a .caret {
+                    color: #fff;
+                }
+
+            .dropdown .dropdown-menu a {
+                padding: 10px 20px;
+            }
+            .profilebox{
+                background: white;
+                border-radius: 10px;
+                margin:20px;
+                padding:20px 20px 20px 20px;
+
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            .profileimg img{
+                Width:100%;
+                Height:200px;
+                border-radius:10px;
+            }
+            .profileimg ul{
+                padding-left:0px;
+                list-style-type:none;
+                 color:rgba(0, 0, 0,0.6);
+                 font-size:12px;
+                 font-family:Verdana;
+                 
+            }
+            .profileimg ul li{
+                padding:5px;
+            //    border-bottom:1px solid #eee;
+                margin-top:5px; 
+            }
+            .pprofileimg h4{
+               font-family:'Arial Rounded MT';
+               font-weight:600;
+               font-size:16px;
+            }
+            .basicdetail{
+                 Width:100%;
+                Height:250px;
+                border-radius:10px;
+
+            }
+    </style>
 
 </head>
 <body>
@@ -59,20 +149,22 @@
                 </nav>
             </div>
 
-            <div class="row" style="margin-top:130px;">
+            <div class="row" style="margin-top:150px;">
                 <div class="col-lg-1"></div>
 
                 <div class="col-lg-4" style="background:none" >
 
-                    <div class="profilebox" style=" height:auto;width:80%;">
+                    <div class="profilebox" style="width:80%;">
                         <div class="profileimg">
                             <asp:Image ID="Image1" runat="server" CssClass="img" ImageUrl="~/img/usericon1.png" />
                             <h4 style="margin-top:20px">My Profile</h4>
                             <h5> </h5>
                             <ul>
+                                 
                                 <li style=" border-bottom:1px solid #eee;">My Bio : <asp:Label ID="lblabout" runat="server" Text=""></asp:Label></li>
                                 <li style=" border-bottom:1px solid #eee;"><asp:Label ID="lblusername1" runat="server" Text="loky kumar"></asp:Label></li>
                                 <li style=" border-bottom:1px solid #eee;"><asp:Label ID="lblemail" runat="server" Text=""></asp:Label></li>
+                                <li style=" border-bottom:1px solid #eee;">Contact : <asp:Label ID="lblContact" runat="server" Text=""></asp:Label></li>
                             </ul>
                         </div>
 

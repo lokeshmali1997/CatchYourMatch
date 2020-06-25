@@ -354,7 +354,8 @@ background-color: #972cc3;
                 </div>
                
                  <div class="col-md-8">
-                    <div class="scrollbar scrollbar-primary">
+                     <asp:Label ID="lblNoResult" runat="server" Text="" style="color:#808080;display:block;text-align:center; word-spacing:2px;"></asp:Label>
+                     <div class="scrollbar scrollbar-primary">
                         <div style="direction:ltr;">
                         <!--Repeater-->
                         <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand" OnItemDataBound="Repeater1_ItemDataBound">
@@ -427,7 +428,7 @@ background-color: #972cc3;
                                                   </li>
                                                 </ul>
                                              <asp:Button ID="btnrequest" runat="server" class="btn btn-primary" Text="Request" CommandName="Request"/>
-                                             <asp:Button ID="btnprofile" runat="server" class="btn btn-primary" Text="View Profile" style="width:78px;height:30px;font-size:10px;" Visible="False" />
+                                             <asp:Button ID="btnprofile" runat="server" class="btn btn-primary" Text="View Profile" CommandName="ViewProfile" style="width:78px;height:30px;font-size:10px;" Visible="False" />
                                             
                                         </div>
                                     

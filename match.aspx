@@ -123,7 +123,7 @@
              <div class="col-md-2"></div>
              <div class="col-md-8">
 
-                 <asp:Repeater ID="Repeater1" runat="server">
+                 <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand" OnItemDataBound="Repeater1_ItemDataBound">
                      <ItemTemplate>
                   <div class="row repeater">
                        <div class="col-md-4">
@@ -131,7 +131,8 @@
                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Bind("profileimage") %>' style="width:150px; height:150px;padding:10px;" />
                             <ul>
                                <li>
-                                   <b><asp:Label ID="Label1" runat="server" Text='<%# Bind("username") %>' style="text-align:center;font-family:'Times New Roman', Times, serif;font-size:20px"></asp:Label></b>
+                                   <b><asp:Label ID="lblusername" runat="server" Text='<%# Bind("username") %>' style="text-align:center;font-family:'Times New Roman', Times, serif;font-size:20px"></asp:Label></b>
+                                   <asp:HiddenField ID="hiddid" runat="server" Value='<%# Bind("id")%>' />
                                </li>
                            </ul>
                        </div>
@@ -148,7 +149,7 @@
                            <li><asp:Label ID="rplang" runat="server" Text='<%# Bind("mothertongue") %>'></asp:Label></li>
                            </ul>
                        </div>
-                      <div class="col-md-4">
+                      <div class="col-md-2">
                            <ul>
                             <li><asp:Label ID="rpeducation" runat="server" Text='<%# Bind("heighesteducation") %>'></asp:Label></li>
                            <li><asp:Label ID="rpoccupation" runat="server" Text='<%# Bind("occupation") %>'></asp:Label>
@@ -158,6 +159,10 @@
                             </li>
                            
                            </ul>
+                      </div>
+                      <div class="col-md-2" style="margin-top:45px;">
+                           <asp:Button ID="btnrequest" runat="server" class="btn" Text="Request" CommandName="Request" style="width:90px;height:32px;font-size:15px; background-color:#972cc3;color:white;"/>
+                           <asp:Button ID="btnprofile" runat="server" class="btn" Text="View Profile" CommandName="ViewProfile" style="width:90px;height:32px;font-size:12px;background-color:#972cc3; color:white;" Visible="false" />
                       </div>
                   </div>
                         </ItemTemplate>
