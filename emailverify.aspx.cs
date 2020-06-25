@@ -62,11 +62,11 @@ public partial class emailverify : System.Web.UI.Page
         bool f = SendOTP("lokeshmali1997@gmail.com", sendtomail, "Verification Your Email", msg);
         if (f)
         {
-            //Response.Write("<script>alert('otp sent successfully')</script>");
+           Response.Write("<script>alert('otp sent successfully')</script>");
         }
         else
         {
-            //Response.Write("<script>alert('otp not sent')</script>");
+            Response.Write("<script>alert('otp not sent')</script>");
         }
 
 
@@ -119,9 +119,9 @@ public partial class emailverify : System.Web.UI.Page
            if(ds.Tables[0].Rows.Count > 0)
             {
                 Session["username"] = ds.Tables[0].Rows[0]["username"];
-                int id = Int32.Parse(ds.Tables[0].Rows[0]["id"].ToString());
+                Session["id"] = ds.Tables[0].Rows[0]["id"].ToString();
 
-                Response.Redirect("home.aspx?id=" + id);
+                Response.Redirect("home.aspx");
 
             }
                
