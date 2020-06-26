@@ -456,4 +456,13 @@ public partial class Inbox : System.Web.UI.Page
             }
         
     }
+
+    protected void Repeater4_ItemCommand(object source, RepeaterCommandEventArgs e)
+    {
+        if (e.CommandName == "ViewProfile")
+        {
+            int R_Id2 = Convert.ToInt32((e.Item.FindControl("hiddR_id2") as HiddenField).Value);
+            Response.Redirect("~/ViewProfile.aspx?R_id=" + R_Id2 + "");
+        }
+    }
 }

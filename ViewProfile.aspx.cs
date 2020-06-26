@@ -20,6 +20,7 @@ public partial class ViewProfile : System.Web.UI.Page
         }
         lblusername.Text = "Hi" + " " + Session["username"];
         R_id = Convert.ToInt32(Request.QueryString["R_id"]);
+       
         selectuserdetails();
        
     }

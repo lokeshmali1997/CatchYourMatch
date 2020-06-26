@@ -403,9 +403,9 @@
                                  <div class="scrollbar scrollbar-primary">
                                     <div style="direction: ltr;">
                                         <!--Repeater 1-->
-                                        <asp:Repeater ID="Repeater4" runat="server">
+                                        <asp:Repeater ID="Repeater4" runat="server" OnItemCommand="Repeater4_ItemCommand">
                                             <ItemTemplate>
-                                                <div class="repeater2" style="width:360px;">
+                                                <div class="repeater2" style="width:460px;">
                                                     <div class="row">
                                                         <div class="col-md-2">
                                                             <ul style="padding-top:5px;">
@@ -418,11 +418,13 @@
                                                               <ul style="padding-top:17px;">
                                                                 <li style="font-weight:600;">
                                                                     <asp:Label ID="lblname" runat="server" Text='<%# Bind("username") %>'></asp:Label><asp:Label ID="lblreligion" runat="server" Text='<%# Bind("caste") %>'></asp:Label>
+                                                                    <asp:HiddenField ID="hiddR_id2" runat="server" Value='<%# Bind("Recevier_Id")%>' />
                                                                 </li>
                                                             </ul>
                                                         </div>
                                                         <div class="col-md-5">
-                                                             <asp:Button ID="btnconfirm" runat="server" class="btnFriends" Text=" Friends" style="margin-left:40px;"></asp:Button >
+                                                             <asp:Button ID="btnfriends" runat="server" class="btnFriends" Text=" Friends" ></asp:Button >
+                                                            <asp:Button ID="btnViewProfile" runat="server" class="btndelete" Text="View Profile" CommandName="ViewProfile" style="width:80px;"/>
                                                         </div>
                                                     </div>
                                                 </div>
