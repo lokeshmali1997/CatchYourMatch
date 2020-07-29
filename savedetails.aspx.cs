@@ -259,7 +259,8 @@ public partial class savedetails : System.Web.UI.Page
                 //}
 
                 string filename = Path.GetFileName(FileUpload1.PostedFile.FileName);
-                string imgPath = "D:/Hitesh Gehlot/Shop data/photos/collage/home frnds/";
+
+                string imgPath = "D:/img/";
 
                 string img = Imager.PerformImageResizeAndPutOnCanvas(imgPath, filename, 1500, 1500);
                 param[25] = new SqlParameter("@profileimage", SqlDbType.VarChar);

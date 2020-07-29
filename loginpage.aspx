@@ -13,6 +13,7 @@
 <body>
     <form id="form1" runat="server">
     <div class=" container-fluid" style="">
+       <%-- <a href="loginpage.aspx">loginpage.aspx</a>--%>
 
         <div class="row" style="box-shadow:0px 1px 5px #ccc;">
             <div class="col-md-4" style="margin-top:20px;margin-bottom:5px;">
@@ -47,7 +48,7 @@
          <a href="#">Forget password</a>
        </div>
        <div class="bottom-text">
-         Don't have account?Sign up
+         Don't have account? <a href="index.aspx" style="text-decoration:none; color:#000000">Sign Up</a>
        </div>
 
        </div>

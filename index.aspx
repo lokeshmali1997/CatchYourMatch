@@ -70,7 +70,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="container-fluid">
-            <div class="row" style="background-image: url(img/d.jpg); height:722px; background-size: 100% 722px; background-repeat: no-repeat">
+            <div class="row" style="background-image: url(img/d.jpg); height:600px; background-size: 100% 722px; background-repeat: no-repeat">
                 <div class="col-md-8">
                 </div>
                 <div class="registerform col-md-4">

@@ -246,7 +246,7 @@
                                 </asp:LinkButton>
                             </li>
 
-                            <li class="nav-item" style="margin-left: 35px;">
+                            <li class="nav-item" style="margin-left:;">
                                 <asp:LinkButton ID="lbtnAcceptRequest" runat="server" class="nav-link" Style="color: #972cc3; border: none;"
                                     OnClick="lbtnAcceptRequest_Click">
                                     <img src="img/icons8-checkmark-64.png" style="width: 20px; height: 20px; margin-top: -4px" />
@@ -254,7 +254,7 @@
                                     Accept</asp:LinkButton>
                             </li>
 
-                            <li class="nav-item" style="margin-left: 35px;">
+                            <li class="nav-item" style="margin-left:;">
                                 <asp:LinkButton ID="lbtnInvitation" runat="server" class="nav-link" Style="color: #972cc3; border: none;"
                                     OnClick="lbtnInvitation_Click">
                                     <img src="img/icons8-team-30.png" style="width: 22px; height: 23px; margin-top: -4px" />
@@ -262,14 +262,14 @@
                                     Invitation</asp:LinkButton>
                             </li>
 
-                            <li class="nav-item" style="margin-left: 30px;">
+                            <li class="nav-item" style="margin-left:">
                                 <asp:LinkButton ID="lbtnFriends" runat="server" class="nav-link" Style="color: #972cc3; border: none;"
                                     OnClick="lbtnFriends_Click">
                                     <img src="img/icons8-checked-user-male-60.png" style="width: 22px; height: 23px; margin-top: -5px" />
                                     <asp:Label ID="lblFriends" runat="server" Text="" class="num" style="margin-left:50px;"></asp:Label>
                                     Friends</asp:LinkButton>
                             </li>
-                             <li class="nav-item" style="margin-left: 20px;">
+                             <li class="nav-item" style="margin-left:;">
                                 <asp:LinkButton ID="lbtnDelete" runat="server" class="nav-link" Style="color: #972cc3; border: none;"
                                      OnClick="lbtnDelete_Click">
                                     <img src="img/icons8-delete-bin-50.png" style="width: 22px; height: 23px; margin-top: -5px" />
@@ -418,7 +418,7 @@
                                                               <ul style="padding-top:17px;">
                                                                 <li style="font-weight:600;">
                                                                     <asp:Label ID="lblname" runat="server" Text='<%# Bind("username") %>'></asp:Label><asp:Label ID="lblreligion" runat="server" Text='<%# Bind("caste") %>'></asp:Label>
-                                                                    <asp:HiddenField ID="hiddR_id2" runat="server" Value='<%# Bind("Recevier_Id")%>' />
+                                                                    <asp:HiddenField ID="hiddR_id2" runat="server" Value='<%# Bind("id")%>' />
                                                                 </li>
                                                             </ul>
                                                         </div>

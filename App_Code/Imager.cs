@@ -167,7 +167,7 @@ namespace ImagerLib
             _img2 = Imager.PutOnCanvas(_imgR, pWidth, pHeight, System.Drawing.Color.White);
            
             //Save JPEG  
-            Imager.SaveJpeg("D:/CatchYourMatch/ProfileImage/" + pFileName, _img2);
+            Imager.SaveJpeg("D:/github/CatchYourMatch/ProfileImage/" + pFileName, _img2);
             return _img2.ToString();
         }
     }
