@@ -153,7 +153,7 @@ public partial class Inbox : System.Web.UI.Page
         int result = cmd.ExecuteNonQuery();
         if (result > 0)
         {
-            Response.Write("<script>alert('Data inserted Successfully')</script>");
+            //Response.Write("<script>alert('Data inserted Successfully')</script>");
 
         }
         Response.Redirect(Request.RawUrl);
@@ -179,7 +179,7 @@ public partial class Inbox : System.Web.UI.Page
         int result = cmd.ExecuteNonQuery();
         if (result > 0)
         {
-            Response.Write("<script>alert('Data inserted Successfully')</script>");
+           // Response.Write("<script>alert('Data inserted Successfully')</script>");
 
         }
         Response.Redirect(Request.RawUrl);
@@ -208,7 +208,7 @@ public partial class Inbox : System.Web.UI.Page
                 int result = objdf.ExecuteQuery("usp_UpdateCount1", param);
                 if (result > 0)
                 {
-                    Response.Write("<script>alert(' sent Count 1 Updated Successfully')</script>");
+                    //Response.Write("<script>alert(' sent Count 1 Updated Successfully')</script>");
                 }
 
             }
@@ -227,7 +227,7 @@ public partial class Inbox : System.Web.UI.Page
                     int result = objdf.ExecuteQuery("usp_UpdateCount1", param);
                     if (result > 0)
                     {
-                        Response.Write("<script>alert('sent Count 2 Updated Successfully')</script>");
+                        //Response.Write("<script>alert('sent Count 2 Updated Successfully')</script>");
                     }
                     
                 }
@@ -287,7 +287,7 @@ public partial class Inbox : System.Web.UI.Page
                 int result = objdf.ExecuteQuery("usp_UpdateCount2", param);
                 if (result > 0)
                 {
-                    Response.Write("<script>alert(' Invitaion count 1  Updated Successfully')</script>");
+                    //Response.Write("<script>alert(' Invitaion count 1  Updated Successfully')</script>");
                 }
 
             }
@@ -305,7 +305,7 @@ public partial class Inbox : System.Web.UI.Page
                     int result = objdf.ExecuteQuery("usp_UpdateCount2", param);
                     if (result > 0)
                     {
-                        Response.Write("<script>alert('Invitaion count 2  Updated Successfully')</script>");
+                        //Response.Write("<script>alert('Invitaion count 2  Updated Successfully')</script>");
                     }
 
                 }
@@ -335,7 +335,7 @@ public partial class Inbox : System.Web.UI.Page
                 int result = objdf.ExecuteQuery("usp_UpdateCount3", param);
                 if (result > 0)
                 {
-                    Response.Write("<script>alert(' Accept count 1  Updated Successfully')</script>");
+                    //Response.Write("<script>alert(' Accept count 1  Updated Successfully')</script>");
                 }
 
             }
@@ -353,7 +353,7 @@ public partial class Inbox : System.Web.UI.Page
                     int result = objdf.ExecuteQuery("usp_UpdateCount3", param);
                     if (result > 0)
                     {
-                        Response.Write("<script>alert(' Accept count 2  Updated Successfully')</script>");
+                        //Response.Write("<script>alert(' Accept count 2  Updated Successfully')</script>");
                     }
 
                 }
@@ -383,7 +383,7 @@ public partial class Inbox : System.Web.UI.Page
                 int result = objdf.ExecuteQuery("usp_UpdateCount5", param);
                 if (result > 0)
                 {
-                    Response.Write("<script>alert(' delete count 1  Updated Successfully')</script>");
+                   // Response.Write("<script>alert(' delete count 1  Updated Successfully')</script>");
                 }
 
             }
@@ -401,7 +401,7 @@ public partial class Inbox : System.Web.UI.Page
                     int result = objdf.ExecuteQuery("usp_UpdateCount5", param);
                     if (result > 0)
                     {
-                        Response.Write("<script>alert(' delete count 2  Updated Successfully')</script>");
+                       // Response.Write("<script>alert(' delete count 2  Updated Successfully')</script>");
                     }
 
                 }
@@ -431,7 +431,7 @@ public partial class Inbox : System.Web.UI.Page
                 int result = objdf.ExecuteQuery("usp_UpdateCount4", param);
                 if (result > 0)
                 {
-                    Response.Write("<script>alert(' Friends count 1  Updated Successfully')</script>");
+                    //Response.Write("<script>alert(' Friends count 1  Updated Successfully')</script>");
                 }
 
             }
@@ -449,7 +449,7 @@ public partial class Inbox : System.Web.UI.Page
                     int result = objdf.ExecuteQuery("usp_UpdateCount4", param);
                     if (result > 0)
                     {
-                        Response.Write("<script>alert(' Friends count 2  Updated Successfully')</script>");
+                       // Response.Write("<script>alert(' Friends count 2  Updated Successfully')</script>");
                     }
 
                 }

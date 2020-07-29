@@ -418,7 +418,7 @@
                                                               <ul style="padding-top:17px;">
                                                                 <li style="font-weight:600;">
                                                                     <asp:Label ID="lblname" runat="server" Text='<%# Bind("username") %>'></asp:Label><asp:Label ID="lblreligion" runat="server" Text='<%# Bind("caste") %>'></asp:Label>
-                                                                    <asp:HiddenField ID="hiddR_id2" runat="server" Value='<%# Bind("Recevier_Id")%>' />
+                                                                    <asp:HiddenField ID="hiddR_id2" runat="server" Value='<%# Bind("id")%>' />
                                                                 </li>
                                                             </ul>
                                                         </div>

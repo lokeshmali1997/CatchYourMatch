@@ -23,6 +23,8 @@ public partial class user : System.Web.UI.Page
         {
             if (!IsPostBack)
             {
+                ds = objdf.FillDsS("select * from UserMaster um where um.id = '" + Session["id"] + "'");
+                Session["username"] = ds.Tables[0].Rows[0]["username"].ToString();
                 lblusername.Text = "Hi" + " " + Session["username"];
                 Userprofiledetails();
 

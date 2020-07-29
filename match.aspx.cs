@@ -93,7 +93,7 @@ public partial class match : System.Web.UI.Page
         int result = cmd.ExecuteNonQuery();
         if (result > 0)
         {
-            Response.Write("<script>alert('Data inserted Successfully')</script>");
+            //Response.Write("<script>alert('Data inserted Successfully')</script>");
 
 
         }

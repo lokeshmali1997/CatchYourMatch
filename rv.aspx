@@ -63,7 +63,25 @@
 <body>
     <form id="form1" runat="server">
        
-
+        <div>  
+      
+        <br />  
+        <br />  
+        <br />  
+        <br />  
+        <asp:FileUpload ID="FileUpload1" runat="server" />  
+        <br />  
+        <br />  
+        Width :<asp:TextBox ID="txtWidth" runat="server"></asp:TextBox>  
+        <br />  
+        <br />  
+        Height :<asp:TextBox ID="txtHeight" runat="server"></asp:TextBox>  
+        <br />  
+        <br />  
+        Output File Name :<asp:TextBox ID="txtOutputFileName" runat="server"></asp:TextBox>  
+        <asp:Button ID="btnSubmit" runat="server" Text="Upload" OnClick="btnSubmit_Click"/>  
+      
+    </div>
 
         <div class="container" style="margin-top: 8%; width: 50%;">
             <div class="row">
