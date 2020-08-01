@@ -259,7 +259,6 @@ public partial class savedetails : System.Web.UI.Page
                 //}
 
                 string filename = Path.GetFileName(FileUpload1.PostedFile.FileName);
-
                 string imgPath = "D:/img/";
 
                 string img = Imager.PerformImageResizeAndPutOnCanvas(imgPath, filename, 1500, 1500);

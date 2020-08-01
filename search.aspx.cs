@@ -72,6 +72,7 @@ public partial class search : System.Web.UI.Page
             string username = (e.Item.FindControl("lblname") as Label).Text;
             FillRequestData(R_Id, username);
             Button btn = (e.Item.FindControl("btnrequest") as Button);
+            btn.Text = "Sent";
             btn.Enabled = false;
         }
         if (e.CommandName == "ViewProfile")
