@@ -54,7 +54,7 @@
 	       }
         .ptxt{
             font-size:16px;
-            color: #adadada6;
+            color: #adadadss;
             text-align:center;
         }
         #txtabout{

@@ -222,10 +222,8 @@
                                  <li>Deit :</li>
                                  <li>Drinking / Smoking :</li>
                                  <li>Physical Status :</li>
-                                 <li>Mother Tongue :</li>
-                                 <li>Religion :</li>
-                                 <li>Caste:</li>
-                            </ul>
+                           
+                                          </ul>
                                 </div>
                                 <div class="col-lg-6">
                                 <ul>
@@ -233,9 +231,6 @@
                                  <li> <asp:Label ID="lbldeit" runat="server" Text=""></asp:Label></li>
                                  <li> <asp:Label ID="lblds" runat="server" Text=""></asp:Label></li>
                                  <li> <asp:Label ID="lblps" runat="server" Text=""></asp:Label></li>
-                                 <li> <asp:Label ID="Label5" runat="server" Text="Never Married"></asp:Label></li>
-                                 <li><asp:Label ID="Label6" runat="server" Text="middle class"></asp:Label></li>
-                                 <li> <asp:Label ID="Label7" runat="server" Text="4ft 6in / 137cms"></asp:Label></li>
                             </ul>
                                 </div>
                                 
